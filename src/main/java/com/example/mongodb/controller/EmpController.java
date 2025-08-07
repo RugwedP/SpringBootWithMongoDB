@@ -38,6 +38,7 @@ public class EmpController {
         return this.empService.findAllEmp();
     }
 
+
     @DeleteMapping("deleteById/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") ObjectId id)
     {
