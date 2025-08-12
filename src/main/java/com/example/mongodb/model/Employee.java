@@ -2,9 +2,12 @@ package com.example.mongodb.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Document
 public class Employee {
@@ -28,6 +31,18 @@ public class Employee {
     private String city;
 
     private LocalDateTime dateTime;
+
+    @DBRef()
+    private List<Laptop> laptops = new ArrayList<>();
+
+
+    public List<Laptop> getLaptops() {
+        return laptops;
+    }
+
+    public void setLaptops(Laptop laptop) {
+        this.laptops.add(laptop);
+    }
 
     public LocalDateTime getDateTime() {
         return dateTime;
